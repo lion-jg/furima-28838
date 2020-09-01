@@ -49,10 +49,6 @@
 | ------------------------ | ---------- | ------------------------------ |
 | user_id                  | references | null: false, foreign_key: true |
 | item_id                  | references | null: false, foreign_key: true |
-| creditcard_num           | integer    | null: false                    |
-| creditcard_exp_month     | date       | null: false                    |
-| creditcard_exp_year      | date       | null: false                    |
-| creditcard_security_code | integer    | null: false                    |
 | postal_code              | integer    | null: false                    |
 | prefecture               | string     | null: false                    |
 | city                     | string     | null: false                    |
