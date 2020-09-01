@@ -10,9 +10,7 @@
 | first_name           | string | null: false |
 | family_name_furigana | string | null: false |
 | first_name_furigana  | string | null: false |
-| birth_year           | date   | null: false |
-| birth_month          | date   | null: false |
-| birth_day            | date   | null: false |
+| birth                | date   | null: false |
 
 ### Association
 
