@@ -47,8 +47,22 @@
 | ------------------------ | ---------- | ------------------------------ |
 | user_id                  | references | null: false, foreign_key: true |
 | item_id                  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+
+
+## addresses テーブル
+
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| purchase_id              | references | null: false, foreign_key: true |
 | postal_code              | integer    | null: false                    |
-| prefecture               | string     | null: false                    |
+| prefecture_id            | integer    | null: false                    |
 | city                     | string     | null: false                    |
 | block_num                | string     | null: false                    |
 | apartment_name           | string     |                                |
@@ -56,8 +70,8 @@
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :purchase
+
 
 
 This README would normally document whatever steps are necessary to get the
