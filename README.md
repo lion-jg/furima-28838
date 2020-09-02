@@ -23,16 +23,16 @@
 
 | Column                  | Type       | Options                        |
 | ----------------------- | ---------- | ------------------------------ |
+| user_id                 | references | null: false, foreign_key: true |
+| image                   | string     | null: false                    |
 | item_name               | string     | null: false                    |
 | detail                  | text       | null: false                    |
-| category                | string     | null: false                    |
+| category_id             | integer    | null: false                    |
+| item_condition_id       | integer    | null: false                    |
+| delivery_fee_id         | integer    | null: false                    |
+| shipping_origin_id      | integer    | null: false                    |
+| shipping_leadtime_id    | integer    | null: false                    |
 | price                   | integer    | null: false                    |
-| user_id                 | references | null: false, foreign_key: true |
-| item_condition          | string     | null: false                    |
-| delivery_fee            | string     | null: false                    |
-| shipping_origin         | string     | null: false                    |
-| shipping_leadtime       | string     | null: false                    |
-| image                   | string     | null: false                    |
 
 ### Association
 
