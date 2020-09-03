@@ -24,7 +24,6 @@
 | Column                  | Type       | Options                        |
 | ----------------------- | ---------- | ------------------------------ |
 | user_id                 | references | null: false, foreign_key: true |
-| image                   | string     | null: false                    |
 | item_name               | string     | null: false                    |
 | detail                  | text       | null: false                    |
 | category_id             | integer    | null: false                    |
@@ -33,6 +32,8 @@
 | shipping_origin_id      | integer    | null: false                    |
 | shipping_leadtime_id    | integer    | null: false                    |
 | price                   | integer    | null: false                    |
+
+ * 画像投稿の際は「active_storage」を用いるので、imageカラムは不要
 
 ### Association
 
@@ -48,6 +49,9 @@
 | user_id                  | references | null: false, foreign_key: true |
 | item_id                  | references | null: false, foreign_key: true |
 
+ * セキュリティの観点から、クレジットカードの情報はデータベースに直接保存しない  
+ * クレジット決済機能を導入できるAPIのテストモードを使用する
+
 ### Association
 
 - belongs_to :user
@@ -61,12 +65,12 @@
 | Column                   | Type       | Options                        |
 | ------------------------ | ---------- | ------------------------------ |
 | purchase_id              | references | null: false, foreign_key: true |
-| postal_code              | integer    | null: false                    |
+| postal_code              | string     | null: false                    |
 | prefecture_id            | integer    | null: false                    |
 | city                     | string     | null: false                    |
 | block_num                | string     | null: false                    |
 | apartment_name           | string     |                                |
-| phone_num                | integer    | null: false                    |
+| phone_num                | string     | null: false                    |
 
 ### Association
 
