@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
   #     log_in user
   #     redirect_to root_path
   #   else
-      
+
   #     render 'new'
   #   end
   #  end
@@ -37,5 +37,4 @@ class Users::SessionsController < Devise::SessionsController
   #    def log_in(user)
   #      session[:user_id] = user.id
   #    end
-
 end
