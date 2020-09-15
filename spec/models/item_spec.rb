@@ -31,27 +31,27 @@ describe Item do
         expect(@item.errors.full_messages).to include("Detail can't be blank")
       end
       it 'categoryの選択が「---」のままになっていると登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
       it 'item_conditionの選択が「---」のままになっていると登録できない' do
-        @item.item_condition_id = '1'
+        @item.item_condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Item condition Select")
       end
       it 'delivery_feeの選択が「---」のままになっていると登録できない' do
-        @item.delivery_fee_id = '1'
+        @item.delivery_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee Select")
       end
       it 'shipping_originの選択が「---」のままになっていると登録できない' do
-        @item.shipping_origin_id = '1'
+        @item.shipping_origin_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping origin Select")
       end
       it 'shipping_leadtimeの選択が「---」のままになっていると登録できない' do
-        @item.shipping_leadtime_id = '1'
+        @item.shipping_leadtime_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping leadtime Select")
       end
@@ -60,13 +60,18 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it 'priceが存在しても¥300〜¥9,999,999以外は登録できない' do
-        @item.price = '299'
+      it 'priceが存在しても¥300未満は登録できない' do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+      it 'priceが存在しても¥10,000,000以上は登録できない' do
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it 'priceが存在しても全角数字では登録できない' do
-        @item.price = '００００'
+        @item.price = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Half-width number')
       end
