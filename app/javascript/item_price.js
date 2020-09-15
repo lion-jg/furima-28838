@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("turbolinks:load", () => {
   const path = location.pathname
 
   if (path === "/items/new" || path === "/items") {
