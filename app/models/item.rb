@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_origin
   belongs_to_active_hash :shipping_leadtime
   has_one_attached :image
+  belongs_to :user
 
   # 空の投稿を保存できないようにする, # 選択が「---」のままになっていないか
   with_options presence: true do
