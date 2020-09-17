@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :items
+  resources :items do
+    resources :purchases, only: [:index]
+  end
 
 end
