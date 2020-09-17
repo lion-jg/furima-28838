@@ -1,7 +1,8 @@
 window.addEventListener("turbolinks:load", () => {
   const path = location.pathname
+  const pathRegex = /^(?=.*item)(?=.*edit)/
 
-  if (path === "/items/new" || path === "/items") {
+  if (path === "/items/new" || path === "/items" || pathRegex.test(path)) {
     const priceInput = document.getElementById("item-price");
     const addTaxDom = document.getElementById("add-tax-price");
     const profitDom = document.getElementById("profit");
