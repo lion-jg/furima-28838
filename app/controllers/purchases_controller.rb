@@ -13,6 +13,12 @@ class PurchasesController < ApplicationController
   def create
     @purchase = PurchaseAddress.new(purchase_params)   #「PurchaseAddress」に編集
     @purchase.save
+    # if @purchase.valid?
+    #   @purchase.save  # バリデーションをクリアした時
+    #   return redirect_to root_path
+    # else
+    #   render "index"    # バリデーションに弾かれた時
+    # end
   end
 
 
@@ -20,7 +26,6 @@ class PurchasesController < ApplicationController
   private
  
   def purchase_params
-   #「住所」「寄付金」のキーも追加
    params.require(:purchase_address).permit(:purchase_id, :postal_code, :shipping_origin_id, :city, :block_num, :apartment_name, :phone_num
 ).merge(user: current_user.id, item: item.id)
   end

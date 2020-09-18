@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :items do
-    resources :purchases, only: [:index]
+    resources :purchases, only: [:index, :create, :new]
   end
 
 end
